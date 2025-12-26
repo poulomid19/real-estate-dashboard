@@ -14,6 +14,9 @@ router.delete("/projects/:id",adminAuth,deleteProject)
 router.post("/admin/logout", adminAuth,logoutAdmin)
 
 //public routes
+router.get("/", (req,res)=>{
+    res.json({message: "Real Estate Dashboard"})
+})
 router.post("/adminLogin",loginAdmin)
 router.get("/trending",getTrending)
 router.get("/products/:id",getProductById)
