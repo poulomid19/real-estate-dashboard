@@ -16,7 +16,7 @@ const AdminLogin = () => {
             const submitHandler= async(e)=>{
               e.preventDefault()
                 try {
-                    const res = await axios.post("http://localhost:3000/api/adminLogin",admin, {
+                    const res = await axios.post("https://real-estate-dashboard-ypyu.onrender.com/api/adminLogin",admin, {
                 withCredentials: true,
                })
                     setAdmin({name:"", password:""})

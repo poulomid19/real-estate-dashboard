@@ -10,7 +10,7 @@ const AdminEdit = () => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/products/${id}`);
+        const res = await axios.get(`https://real-estate-dashboard-ypyu.onrender.com/api/products/${id}`);
         // console.log(res.data)
         setProject(res.data.project);
       } catch (err) {

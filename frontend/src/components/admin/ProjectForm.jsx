@@ -44,7 +44,7 @@ const ProjectForm = () => {
     const submitHandler= async(e)=>{
       e.preventDefault()
       try {
-          const res = await axios.post("http://localhost:3000/api/addproject", form,{
+          const res = await axios.post("https://real-estate-dashboard-ypyu.onrender.com/api/addproject", form,{
         withCredentials: true,
       })
           console.log(res.data)

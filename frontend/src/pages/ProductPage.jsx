@@ -14,7 +14,7 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const fetchProduct= async()=>{
     try {
-        const res = await axios.get(`http://localhost:3000/api/products/${id}`);
+        const res = await axios.get(`https://real-estate-dashboard-ypyu.onrender.com/api/products/${id}`);
         console.log(res.data)
         setProduct(res.data.product); 
         setLoading(false);
@@ -34,7 +34,7 @@ const ProductPage = () => {
      <Navbar/>
       <div className="max-w-7xl mx-auto px-4 py-10">
   {/* HERO SECTION */}
-  <div className="relative rounded-xl overflow-hidden shadow-lg h-[420px]">
+  <div className="relative rounded-xl overflow-hidden shadow-lg h-105">
     <img src={product.images[0]} className="w-full h-full object-cover" />
     {/* Overlay */}
     <div className="absolute inset-0 bg-black/40" />

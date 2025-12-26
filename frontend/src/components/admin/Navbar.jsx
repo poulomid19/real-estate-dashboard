@@ -6,7 +6,7 @@ const Navbar = () => {
 
   const clickHandler = async()=>{
    try {
-      await axios.post("http://localhost:3000/api/admin/logout", {}, { withCredentials: true });
+      await axios.post("https://real-estate-dashboard-ypyu.onrender.com/api/admin/logout", {}, { withCredentials: true });
       alert("logged out successfully")
       navigate("/");
     } catch (err) {

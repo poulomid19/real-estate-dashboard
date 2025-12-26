@@ -7,7 +7,7 @@ const Trending = ({ selectedCategory }) => {
     const[trending,setTrending]= useState([])
     const fetchTrending = async () => {
     try {
-     const res = await axios.get("http://localhost:3000/api/trending");
+     const res = await axios.get("https://real-estate-dashboard-ypyu.onrender.com/api/trending");
      console.log(res.data)
       setTrending(res.data.projects);
     } catch (error) {

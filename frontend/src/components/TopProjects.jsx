@@ -6,7 +6,7 @@ const TopProjects = () => {
 
   const fetchProject = async()=>{
     try {
-      const res = await axios.get("http://localhost:3000/api/trending",{
+      const res = await axios.get("https://real-estate-dashboard-ypyu.onrender.com/api/trending",{
         withCredentials: true,
       })
       setProject(res.data.projects)

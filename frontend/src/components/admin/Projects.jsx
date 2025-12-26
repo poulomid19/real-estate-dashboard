@@ -8,7 +8,7 @@ const Projects = () => {
 
   const fetchProject = async()=>{
     try {
-      const res = await axios.get("http://localhost:3000/api/projects",{
+      const res = await axios.get("https://real-estate-dashboard-ypyu.onrender.com/api/projects",{
         withCredentials: true,
       })
       setProject(res.data.projects)
@@ -22,7 +22,7 @@ const Projects = () => {
   }
   const handleDelete =async(id)=>{
     try {
-      await axios.delete(`http://localhost:3000/api/projects/${id}`, {
+      await axios.delete(`https://real-estate-dashboard-ypyu.onrender.com/api/projects/${id}`, {
           withCredentials: true,
         })
       setProject(project.filter((p) => p._id !== id));
