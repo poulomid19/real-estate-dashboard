@@ -4,9 +4,14 @@ const mongoose = require("mongoose")
 const setAdmin = require("./seedAdmin")
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
+
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 const cors = require("cors")
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://real-estate-dashboard-alpha.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,               
 }))
 const projectRouter = require("./routes/route")
@@ -15,8 +20,6 @@ const projectRouter = require("./routes/route")
 const dotenv = require("dotenv")
 dotenv.config()
 
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
