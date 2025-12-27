@@ -5,13 +5,19 @@ import { useNavigate } from "react-router-dom";
 const Trending = ({ selectedCategory }) => {
     const navigate = useNavigate()
     const[trending,setTrending]= useState([])
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(null);
     const fetchTrending = async () => {
     try {
+      setLoading(true);
      const res = await axios.get("https://real-estate-dashboard-ypyu.onrender.com/api/trending");
-     console.log(res.data)
+    //  console.log(res.data)
       setTrending(res.data.projects);
+      setError(null);
     } catch (error) {
       console.error("Error fetching projects:", error);
+      setError("Failed to load trending properties. Please try again later.");
+      setLoading(false);
     }
   };
 
@@ -41,6 +47,23 @@ const Trending = ({ selectedCategory }) => {
   <p className="text-gray-500 mt-2 text-center mb-5">
     Explore what people are viewing the most this week.
   </p>
+
+  {/* Loading state */}
+      {loading && (
+        <div className="text-center text-gray-600 py-10">
+          Loading trending properties...
+        </div>
+      )}
+
+      {/* Error state */}
+      {error && (
+        <div className="text-center text-red-600 py-10">
+          {error}
+        </div>
+      )}
+
+
+  {!loading && !error && (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 place-items-center py-5">
   {filtered.map((t, index) => (
     <div
@@ -99,6 +122,7 @@ const Trending = ({ selectedCategory }) => {
     </div>
   ))}
 </div>
+  )}
 </section>
 </>
 
