@@ -17,7 +17,8 @@ const Trending = ({ selectedCategory }) => {
     } catch (error) {
       console.error("Error fetching projects:", error);
       setError("Failed to load trending properties. Please try again later.");
-      setLoading(false);
+    }
+    finally { setLoading(false)
     }
   };
 
