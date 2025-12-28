@@ -15,7 +15,7 @@ const ProductPage = () => {
   const fetchProduct= async()=>{
     try {
         const res = await axios.get(`https://real-estate-dashboard-ypyu.onrender.com/api/products/${id}`);
-        console.log(res.data)
+        // console.log(res.data)
         setProduct(res.data.product); 
         setLoading(false);
       } catch (error) {
