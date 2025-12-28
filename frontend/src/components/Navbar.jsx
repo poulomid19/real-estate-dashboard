@@ -1,4 +1,4 @@
-import logo from '../assets/logo.webp'
+import logo from '../assets/logo.jpg'
 import { Globe, Phone, MessageCircle, ChevronDown } from "lucide-react";
 const Navbar = () => {
   return (
