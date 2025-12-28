@@ -8,10 +8,17 @@ const About = ({about}) => {
     message: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log("Form submitted:", form);
+    try {
+      const res = await axios.post("https://real-estate-dashboard-ypyu.onrender.com/api/message", form)
+      setForm(res.data.message)
+      toast.success()
+    } catch (error) {
+      toast.error(error.response.data.message)
+    }
   };
+
   return (
     <>
       <section className="py-16 bg-gray-50">
@@ -52,15 +59,14 @@ const About = ({about}) => {
               required
             />
             <textarea
-              placeholder="Message (optional)"
+              placeholder="Message"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               className="w-full p-3 border rounded"
             />
             <button
               type="submit"
-              className="w-full bg-red-500 text-white py-3 rounded-lg font-medium hover:bg-red-600 transition"
-            >
+              className="w-full bg-red-500 text-white py-3 rounded-lg font-medium hover:bg-red-600 transition">
               Send Request
             </button>
           </form>
