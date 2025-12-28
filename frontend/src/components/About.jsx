@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import axios from "axios";
+import {toast} from "react-toastify"
 const About = ({about}) => {
      const [form, setForm] = useState({
     name: "",
@@ -12,10 +13,15 @@ const About = ({about}) => {
     e.preventDefault();
     try {
       const res = await axios.post("https://real-estate-dashboard-ypyu.onrender.com/api/message", form)
-      setForm(res.data.message)
-      toast.success()
+        setForm({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+      toast.success(res.data.message)
     } catch (error) {
-      toast.error(error.response.data.message)
+      toast.error(error.response?.data?.message || "Failed to send request")
     }
   };
 
